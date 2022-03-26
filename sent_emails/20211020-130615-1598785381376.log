@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: saipavani2119@gmail.com
+Date: Wed, 20 Oct 2021 07:36:15 -0000
+Message-ID: <163471537556.4376.16877617510036978828@Mahitha>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/accounts/reset/MTE/autj2f-e4599750c1b48be07c801c4411cf3e49/
+
+Your username, in case you’ve forgotten: pavani_lanka
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------
