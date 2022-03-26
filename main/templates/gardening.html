@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<pre></pre><pre></pre>
+<main class="container my-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+<div class="container" style="float: none;">
+    <p style="font-size: 24px; text-align: center;">At Grow Fresh Greens, we take a cooperative approach, developing the design concept together with our clients, tailoring the service according to their taste, needs and budget.</p>
+</div>
+
+<div class="container" style="float: left;">
+    <pre></pre><pre></pre>
+    <b><p style="font-size: 22px; text-align: left;">How we can help?</p></b>
+    <p style="font-size: 20px; text-align: left;">From site work to custom brick and stone masonry, we can install your project with our own talented artisans and quality landscaping equipment. Using our knowledge of soils, plants, landscape materials, and construction techniques, we are well qualified for any size project. We employ all our resources to achieve the best possible results, no matter the scale.</p>
+    <p style="font-size: 20px; text-align: left;">The plants and trees are grown at our own NC Certified Nursery. Our NC Certified Plant Professional and staff horticulturist have collaborated to create one of the best nursery resources in the Triangle.</p>
+    <p style="font-size: 20px; text-align: left;">Maintenance services will be provided free of cost as after installation services for 3 months. After this period of time, the customer has to renew their service plan if they wish to continue availing the maintenance services.</p>
+</div>
+
+<br><a href="{% url 'add-appointment' %}"><button class="btn btn-dark btn-sm" style="text-align: center; margin-left: 45%;">Book an Appointment</button></a><br><br>
+<div class="container-fluid" style="text-align: center;">
+    <div class="row">
+        <div class="col-sm-6" style="margin-top: 13%;"><p style="font-size: 22px;"><b>Indoor Vertical Garden </b><br>
+            <p style="font-size: 20px; line-height: 1.8;">It is a completely innovative and productive thought of co-existing with nature while adding another dimension to an indoor living space. This is one of the best ways to save space with a garden growing up.</p>
+            <a href="{% url 'indoor' %}" ><button type="button" class="btn btn-dark"></a>
+            <a href="{% url 'indoor' %}" style="text-align: center;color: white; text-decoration: none;">Read More</a>
+            </button></p>
+        </div>
+        <div class="col-sm-6"><a href="{% url 'indoor' %}"><img src="media/gardening/1.jpg" width="575rem;"></a></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6" style="margin-left: -2%;"><a href="{% url 'outdoor' %}"><img src="media/gardening/outdoor1.jpg" width="575rem;"></a></div>
+        <div class="col-sm-6" style="margin-left: 2%; margin-top: 5%; line-height: 1.8;"><p style="font-size: 22px;"><b>Outdoor Vertical Garden </b><br>
+            <p style="font-size: 20px;">It is a completely innovative and productive thought of co-existing with nature while adding another dimension to an outdoor living space. This is one of the best ways to save space with a garden growing up.</p>
+            <a href="{% url 'outdoor' %}" ><button type="button" class="btn btn-dark"></a>
+            <a href="{% url 'outdoor' %}" style="text-align: center;color: white; text-decoration: none;">Read More</a>
+            </button></p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6" style="margin-top: 16%;"><p style="font-size: 22px;"><b>Balcony Garden </b><br>
+            <p style="font-size: 20px; line-height: 1.8;">Don’t have a bigger space to turn into a beautiful garden landscape or a rooftop into a terrace garden? No problem! Even small plants can do bigger magic, not just providing fresher air to breathe while staying within, but also transforming your space into a magnificent decor.</p>
+            <a href="{% url 'balcony' %}" ><button type="button" class="btn btn-dark"></a>
+            <a href="{% url 'balcony' %}" style="text-align: center;color: white; text-decoration: none;">Read More</a>
+            </button></p>
+        </div>
+        <div class="col-sm-6"><a href="{% url 'balcony' %}"><img src="media/gardening/balcony1.jpg" width="575rem;"></a></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6" style="margin-left: -2%;"><a href="{% url 'terrace' %}"><img src="media/gardening/terrace 1.jpg" width="575rem;"></a></div>
+        <div class="col-sm-6" style="margin-left: 2%; margin-top: 3%; line-height: 1.8;"><p style="font-size: 22px;"><b>Terrace Garden </b><br>
+            <p style="font-size: 20px;">The terrace garden is one of many ways to lead a healthier and greener life. And it is a great opportunity for people with bigger spaces. Not only small plants or flowers, but it is a great idea to grow fruits and vegetables on your rooftop as well.</p>
+            <a href="{% url 'terrace' %}" ><button type="button" class="btn btn-dark"></a>
+            <a href="{% url 'terrace' %}" style="text-align: center;color: white; text-decoration: none;">Read More</a>
+            </button></p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6" style="margin-top: 17%;"><p style="font-size: 22px;"><b>Landscaping </b><br>
+            <p style="font-size: 20px; line-height: 1.8;">Living in a beautiful space is important for inner peace, and living in a healthier beautiful space is a necessity!</p>
+            <a href="{% url 'landscape' %}" ><button type="button" class="btn btn-dark"></a>
+            <a href="{% url 'landscape' %}" style="text-align: center;color: white; text-decoration: none;">Read More</a>
+            </button></p>
+        </div>
+        <div class="col-sm-6"><a href="{% url 'landscape' %}"><img src="media/gardening/landscape1.jpg" width="575rem;"></a></div>
+    </div>
+</div>
+</main>
+{% endblock %}

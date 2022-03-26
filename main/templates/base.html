@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+	<title>Grow Fresh Greens</title>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}" />
+	<!-- Bootstrap 4 CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}" />
+	<!-- Main Jquery -->
+	<script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+	<!-- Bootstrap 4 JS -->
+	<script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
+	<!-- CustomJs -->
+	<link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}" />
+	<script type="text/javascript" src="{% static 'custom.js' %}"></script>
+</head>
+<body style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+        <div class="row" style="background-color: #032e03; padding-top: 20px; padding-bottom: 20px;">
+            <div class="col-6 col-md" style="text-align: center;">
+                <span class ="f1-icon">
+                    <i class="fa fa-phone" style="color: #ffff;"></i>
+              <a href="tel://+1 66327991" target ="_blank" style="color: #ffff;">+ (1) 66327991 </a>
+              </span>
+            </div>
+            <div class="col-6 col-md" style="text-align: center;">
+                <span class ="f1-icon" style="color: #ffff;">
+                   <i class="fa fa-clock" ></i>
+                Mon - Sat : 9:00 am - 7:00 pm
+            </span>
+            </div>
+            <div class="col-6 col-md" style="text-align: center;">
+                <span class ="f1-icon" style="color: #ffff;">
+                    <i class="fa fa-envelope" ></i>
+                      <a href="mailto://growfreshgreens@gmail.com" target="_blank" style="color: #ffff;">growfreshgreens@gmail.com</a>
+                 </span>
+            </div>
+        </div>	
+		<nav class="navbar navbar-expand-lg" style="background-color: #ffff;">
+		<div class="container">
+		  <a class="navbar-brand" href="/"><img width="80px", height="80px", src="/media/icons/logo.png" alt="Logo"></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+		  	<form class="form-inline mr-2 my-lg-0" action="/search">
+		      <div class="input-group">
+				  <input name="q" type="text" class="form-control" placeholder="search" style="width: 350px;"/>
+				  <div class="input-group-append">
+				    <button class="btn btn-dark" type="submit" id="button-addon2" >Search</button>
+				  </div>
+				</div>
+		    </form>
+		    <ul class="navbar-nav ml-auto">
+		      <li class="nav-item">
+		        <a class="nav-link" href="/" style="color:black;">Home</a>
+		      </li>
+			  <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black;">Products</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+						<a class="dropdown-item" href="{% url 'flower_product_list' %}">Flower Plants</a>
+						<a class="dropdown-item" href="{% url 'home_plants' %}">Home Plants</a>
+						<a class="dropdown-item" href="{% url 'fruits' %}">Fruit Plants</a>
+						<a class="dropdown-item" href="{% url 'seeds' %}">Seeds</a>
+						<a class="dropdown-item" href="{% url 'manure' %}">Manure</a>
+				</div>
+		      </li>
+			  <li class="nav-item">
+		        <a class="nav-link" href="{% url 'home_kits' %}" style="color:black;">Home Kits</a>
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link" href="{% url 'gardening' %}" style="color:black;">Garden</a>
+     		  </li>
+		      <li class="nav-item">
+				{% if user.is_authenticated %}
+		        <a class="nav-link" href="{% url 'cart'%}" style="color:black;"><i class="fa fa-shopping-cart" style="color:black;"></i> Cart (<span class="cart-list" style="color:black;">{{request.session.cartdata|length}}</span>)</a>
+				{% else %}
+		        <a class="nav-link" href="#" style="color:black;" onclick="return confirm('Kindly Login to Continue')"><i class="fa fa-shopping-cart" style="color:black;"></i> Cart (<span class="cart-list" style="color:black;">{{request.session.cartdata|length}}</span>)</a>
+				{% endif %}
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black;">
+		          <i class="fa fa-user"></i> My Account
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+		        {% if user.is_authenticated %}
+		        	<a class="dropdown-item" href="{% url 'edit-profile' %}">My Profile</a>
+		        	<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+	        	{% else %}
+	        		<a class="dropdown-item" href="{% url 'logout' %}">Login</a>
+		          	<a class="dropdown-item" href="{% url 'signup' %}">Register</a>
+		        {% endif %}
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		</div>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
+
+	<footer class="pt-4 my-md-5 pt-md-5 border-top container">
+		<div class="row">
+			<div class="col-6 col-md" style="text-align: center;">
+			<a class="text-muted" href="/">Grow Fresh Greens</a>
+			<small class="text-muted">&copy; 2017-2021</small>
+			</div>
+			<div class="col-6 col-md" style="text-align: center;">
+				<a class="text-muted" style="text-align: center;" href="{% url 'terms_condition' %}">Terms and Conditions</a>
+			</div>
+			<div class="col-6 col-md" style="text-align: center;">
+				<a class="text-muted" href="{% url 'cancellation' %}">Return/Cancellation Privacy</a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

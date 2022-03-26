@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"  style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="media/homekits/7.jpg" alt="First slide" height="500px" width="100%">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>We make it easy to grow your own produce</h2>
+            </div>
+        </div>
+    </div> 
+</div>
+<main class="container my-4">
+    <pre></pre><pre></pre><pre></pre>
+    <h2>How does it Work?</h2>
+    <br>
+    <h5 >All the joy of farming, minus the mess.</h5>
+    <pre></pre>
+
+    <div class="row">
+        <div class="card" style= "width: 17rem; margin: 0.4rem; text-align: center;">
+            <img width="350px", height="275px", class="card-img-top" src="media/homekits/homekit1.png">
+            <br>
+            <h6 style="line-height: 1.4;">Install the kit we ship to you following the easy guide</h6>
+        </div>
+        <div class="card" style= "width: 17rem; margin: 0.4rem; text-align: center;">
+            <img width="350px", height="275px", class="card-img-top" src="media/homekits/hk2.jpg">
+            <br>
+            <h6 style="line-height: 1.4;">Plant your seeds in the Coco Capsules or seed chamber</h6>
+        </div>
+        <div class="card" style= "width: 17rem; margin: 0.4rem; text-align: center;">
+            <img width="350px", height="275px", class="card-img-top" src="media/homekits/hk3.jpg">
+            <br>
+            <h6 style="line-height: 1.4;">Add water and nutrients that will provide nutrition to the plant</h6>
+        </div>
+        <div class="card" style= "width: 17rem; margin: 0.4rem; text-align: center;">
+            <img width="350px", height="275px", class="card-img-top" src="media/homekits/hk4.jpg">
+            <br>
+            <h6 style="line-height: 1.4;">Enjoy your fresh harvest!</h6>
+        </div>
+    </div>
+    <!-- <hr> -->
+    <pre></pre><pre></pre><pre></pre>
+
+    <h3>Grow where you live, work & eat!</h3>
+        <pre></pre><pre></pre>
+        <hr>
+     
+        <div class="row" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" >
+            {% for product in data %}
+              <div class="col-lg-4 col-md-6 mb-4 product-box">
+                <div class="card" style="width: 100%; height: 50%; margin-left:15%; margin-top: 3%;">
+                  <div class="card shadow">
+                    <a href="/product/{{product.slug}}/{{product.id}}"><img src="media/{{product.image}}" class="card-img-top" alt="{{product.title}}"></a>
+                      <div class="card-body" style=" width: 12rem;">
+                        <h5 class="card-text"><a href="/product/{{product.slug}}/{{product.id}}" style="color: black; text-decoration: none;">{{product.title}}</a></h5>
+                        <h6>$ <span class="product-price-{{product.id}}"id="product_price" >{{product.price}}</span></h6>
+                          <input type="hidden" value="1" class="form-control product-qty-{{product.id}}" id="productQty" />
+                          <input type="hidden" class="product-image-{{product.id}}" value="{{product.image}}" id="product_image"  />
+                          <input type="hidden" class="product-id-{{product.id}}" value="{{product.id}}" id="product_id" />
+                          <input type="hidden" class="product-title-{{product.id}}" value="{{product.title}}" id="product_title" />
+                                {% if user.is_authenticated %}
+                                <button class="btn btn-txt btn-sm add-to-cart" data-index="{{product.id}}" style="background-color: transparent; border-radius: 15px; height: 25px; font-weight: 600;padding: 0 8px; border:2px solid #01250d; width:35%; ">Add</button>
+                                <button class="btn btn-outline-light add-wishlist" data-product="{{product.id}}"><i class="fa fa-heart" style="color: red;"></i></button>
+                                {% else %}
+                                <button class="btn btn-txt btn-sm" data-index="{{product.id}}" style="background-color: transparent; border-radius: 15px; height: 25px; font-weight: 600;padding: 0 8px; border:2px solid #01250d; width:35%; "><a onclick="return confirm('Kindly Login to Continue')">Add</a></button>
+                                <button class="btn btn-outline-light"><a onclick="return confirm('Kindly Login to Continue')"><i class="fa fa-heart" style="color: red;"></i></a></button>
+                                {% endif %}
+                            </div>
+                    </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>    
+        
+	
+
+    <pre></pre><pre></pre><pre></pre>
+    <hr>
+    <pre></pre><pre></pre><pre></pre>
+    <div class="row">
+        <div class="container" style="text-align: center;">
+            <h4>Many crops, Many Possibilities.</h4>
+            <h5>Explore a wide variety of fruits, vegetables, crops, from classic herbs to exotic edible flowers. The choice is yours.</h5>
+            <pre></pre><pre></pre>
+            <a href="{% url 'crop_list'%}"><button type="button" class="btn btn-secondary">Full Crop List</button></a>
+            <img width="800rem", src="media/homekits/3.jpg">
+        </div>
+    </div>
+    <pre></pre><pre></pre><pre></pre>
+    <hr>
+    <pre></pre><pre></pre><pre></pre>
+        <div class="container" style="text-align: left;">
+            <h4>What you don’t need, to grow your own veggies with Us</h4>
+            <style>
+                th,td{
+                    padding: 10px;
+                    text-align: center;
+                }
+                td{
+                    font-size: 18px;
+                }
+            </style>
+            <table style="width:100%">
+                <tr>
+                  <th><i class="fa fa-money" style="color: black; font-size: 28px;"></i></th>
+                  <th><i class="fa fa-sun" style="color: rgb(238, 238, 12); font-size: 30px;" ></i></th>
+                  <th><i class="fa fa-home" style="color:rgb(78, 29, 6); font-size: 30px;"></i></th>
+                </tr>
+                <tr>
+                  <td>Lot of Money</td>
+                  <td>Specific weather conditions</td>
+                  <td>Lot of space</td>
+                </tr>
+                <pre></pre><pre></pre>
+                <tr>
+                    <th><i class="fa fa-clock" style="color:rgb(7, 7, 99); font-size: 30px;"></i></th>
+                    <th><i class="fa fa-book" style="color: rgb(97, 5, 5); font-size: 30px;"></i></th>
+                </tr>
+                  <tr>
+                    <td>Lot of time & effort</td>
+                    <td>Horticulture knowledge</td>
+                  </tr>    
+            </table>
+    
+        </div>
+
+</main>
+</body>
+{% endblock %}

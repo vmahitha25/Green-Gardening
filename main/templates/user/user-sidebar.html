@@ -1,0 +1,9 @@
+<div class="list-group" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+	<a href="{% url 'edit-profile' %}" style="text-decoration: none;color: black;" class="list-group-item {% if request.path == '/edit-profile' %}active {% endif %}">Profile</a>
+	<a href="{% url 'my_orders' %}" style="text-decoration: none;color: black;" class="list-group-item {% if request.path == '/my-orders' %}active {% endif %}">Orders</a>
+	<a href="{% url 'my_wishlist' %}" style="text-decoration: none;color: black;" class="list-group-item {% if request.path == '/my-wishlist' %}active {% endif %}">Wishlist</a>
+	<a href="{% url 'my-reviews' %}" style="text-decoration: none;color: black;" class="list-group-item {% if request.path == '/my-reviews' %}active {% endif %}">My Reviews</a>
+	<a href="{% url 'my-addressbook' %}" style="text-decoration: none;color: black;" class="list-group-item {% if request.path == '/my-addressbook' %}active {% endif %}">Saved Addresses</a>
+	<a href="{% url 'password_change' %}" style="text-decoration: none;color: black;" class="list-group-item {% if request.path == '/accounts/password_change/' %}active {% endif %}">Change Password</a>
+	<a href="{% url 'logout' %}" style="text-decoration: none;color: black;" class="text-danger list-group-item">Logout</a>
+</div>

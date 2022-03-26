@@ -1,0 +1,50 @@
+from django.urls import path,include
+
+from green_gardening.settings import STATIC_ROOT, STATIC_URL
+from .  import views
+urlpatterns=[
+    path('',views.home,name='home'),
+    path('review-added',views.review,name='review'),
+    path('search',views.search,name='search'),
+    path('flower_product_list',views.flower_product_list,name='flower_product_list'),
+    path('home_plants',views.home_plants,name='home_plants'),
+    path('seeds',views.seeds,name='seeds'),
+    path('manure',views.manure,name='manure'),
+    path('fruits',views.fruits,name='fruits'),
+    path('home_kits',views.home_kits, name='home_kits'),
+    path('crop_list',views.crop_list, name='crop_list'),
+    path('indoor',views.indoor, name='indoor'),
+    path('outdoor',views.outdoor, name='outdoor'),
+    path('balcony',views.balcony, name='balcony'),
+    path('terrace',views.terrace, name='terrace'),
+    path('landscape',views.landscape, name='landscape'),
+    path('gardening',views.gardening, name='gardening'),
+    path('product/<str:slug>/<int:id>',views.product_detail, name='product_detail'),
+    path ('add_to_cart', views.add_to_cart, name='add_to_cart'), 
+    path ('cart', views.cart, name='cart'), 
+    path ('delete-from-cart', views.delete_cart_item, name='delete-from-cart'), 
+    path ('update-cart', views.update_cart_item, name='update-cart'), 
+    path ('accounts/register', views.signup, name='signup'), 
+    path ('checkout', views.checkout, name='checkout'), 
+    path('paypal/', include('paypal.standard.ipn.urls')),
+    path('payment-done/', views.payment_done, name='payment_done'),
+    path('payment-cancelled/', views.payment_canceled, name='payment_cancelled'),
+    path('save-review/<int:pid>', views.save_review, name='save-review'), 
+    path('my-orders',views.my_orders, name='my_orders'),
+    path('my-orders-items/<int:id>',views.my_order_items, name='my_order_items'),
+    path('add-wishlist',views.add_wishlist, name='add_wishlist'),
+    path('my-wishlist',views.my_wishlist, name='my_wishlist'),
+    path('my-reviews',views.my_reviews, name='my-reviews'),
+    path('my-addressbook',views.my_addressbook, name='my-addressbook'),
+    path('add-address',views.save_address, name='add-address'),
+    path('add-appointment',views.add_appointment, name='add-appointment'),
+    path('activate-address',views.activate_address, name='activate-address'),
+    path('update-address/<int:id>',views.update_address, name='update-address'),
+    path('edit-profile',views.edit_profile, name='edit-profile'),
+    path('delete_address/<int:id>',views.delete_address, name='delete-address'),
+    path('delete_wishlist_item/<int:id>', views.deletewishlist, name="deletewishlist"),
+     #terms and condition
+    path('terms_condition',views.terms_condition, name='terms_condition'),
+    #cancellation
+    path('cancellation',views.cancellation, name='cancellation')
+]

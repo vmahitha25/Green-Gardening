@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="container my-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+    <!-- Featured Products -->
+    <div class="row">
+        <div class="col-sm-6" style="margin-top: 7%;">
+            <img src="/media/gardening/3.png" width="500rem;">
+        </div>
+        <div class="col-sm-6">
+            <h3 class="my-4 border-bottom pb-1">Login</h3>
+            <table class="table table-bordered" style="margin-top: 8%;">
+                <form method="post">
+                    {% csrf_token %}
+                    {{form.as_table}}
+                        <td colspan="2" style="text-align: center;">
+                            <input type="submit" value="Login" class="btn btn-primary" style="width: 27%; font-size: 18px; background-color: black;"/>
+                        </td>
+                </form>
+            </table>
+            <p><a href="{% url 'password_reset' %}" style="text-decoration: none;" class="text-danger">Reset Password?</a></p>
+            <p>If you are not registred, Please <a href="{% url 'signup' %}" style="text-decoration: none; color: #032e03;">Signup here</a>.</p>
+        </div>
+    </div>
+    <style>
+        .table {
+        border-collapse: collapse;
+        }
+
+        .td {
+        border: none;
+        }
+    </style>
+</main>
+{% endblock %}
