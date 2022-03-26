@@ -1,0 +1,12 @@
+.focused{
+	outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%) !important;
+}
+
+.errorlist li{
+	color: red;
+}
+main,body,div,h1,a{
+    font-family:"Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
+}
+
